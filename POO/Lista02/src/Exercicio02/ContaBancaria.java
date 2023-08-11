@@ -34,7 +34,7 @@ public class ContaBancaria {
     }
     
     public void sacar(double valor){
-         if(valor < 0){
+         if(valor < 0 || valor > this.getSaldo()){
             throw new IllegalArgumentException("Valor negativo para deposito");
         }
          this.saldo = this.getSaldo() - valor;
@@ -42,7 +42,7 @@ public class ContaBancaria {
     }
     public void transferir(ContaBancaria contaDestino, double valor){
         contaDestino.depositar(valor);
-        this.saldo = this.getSaldo() - valor;
+        this.sacar(valor);
         
     }
     public void depositar(double valor){
