@@ -90,7 +90,7 @@ public class AppUi extends javax.swing.JFrame {
                 .addComponent(btCadastrar)
                 .addGap(43, 43, 43)
                 .addComponent(lbMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pack();
