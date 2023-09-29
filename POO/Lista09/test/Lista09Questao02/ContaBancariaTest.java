@@ -27,6 +27,12 @@ public class ContaBancariaTest {
         public void conferirMovimentos() {
         
         assertEquals(2, conta.getMovimentos().size());
+        Movimento movimento1 = conta.getMovimentos().get(0);
+        assertEquals("Tipo movimento do 1 movimento", TipoMovimento.CREDITO, movimento1.getTipoMovimento());
+        assertEquals("Valor do primeiro movimento",1000, movimento1.getValor(), 0.00);
+        Movimento movimento2 = conta.getMovimentos().get(1);
+        assertEquals("Tipo movimento do 2 movimento", TipoMovimento.DEBITO, movimento2.getTipoMovimento());
+        assertEquals("Valor do segundo movimento",250, movimento2.getValor(), 0.00);
     }
 
 

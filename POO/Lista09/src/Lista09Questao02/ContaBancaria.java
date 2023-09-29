@@ -15,7 +15,6 @@ public class ContaBancaria {
     private String numero; 
     private double saldo;
     private Cliente cliente; 
-    private TipoMovimento tipo; 
     private ArrayList<Movimento> movimentos;
    
 
@@ -50,7 +49,7 @@ public class ContaBancaria {
     public void depositar(double valor){
        
         if(valor > 0){
-            Movimento m = new Movimento(valor, tipo.CREDITO);
+            Movimento m = new Movimento(valor, TipoMovimento.CREDITO);
             this.incluirMovimento(m);
             this.setSaldo(this.getSaldo() + valor);
         }
@@ -58,7 +57,7 @@ public class ContaBancaria {
     }
     public void sacar(double valor){
          if(valor > 0 && valor <= this.getSaldo()){
-             Movimento m = new Movimento(valor, tipo.DEBITO);
+             Movimento m = new Movimento(valor, TipoMovimento.DEBITO);
              this.movimentos.add(m);
              this.setSaldo(this.getSaldo() - valor);
         }
