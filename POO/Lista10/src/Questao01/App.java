@@ -18,6 +18,7 @@ public class App {
         System.out.println("Digite a figura desejada: ");
         String figura = input.nextLine().toLowerCase();
         
+        Figura figuraGeometrica = null; 
 
         switch (figura) {
             case "retangulo":
@@ -26,8 +27,7 @@ public class App {
                 System.out.println("Escreva a largura: ");
                 int largura = input.nextInt();
 
-                Figura ret = new Retangulo(largura, altura);
-                System.out.println("A área do retângulo é " + ret.calcularArea());
+                figuraGeometrica = new Retangulo(largura, altura);
                 break;
             case "triangulo":
                 System.out.println("Escreva o lado 1: ");
@@ -37,25 +37,23 @@ public class App {
                 System.out.println("Escreva o lado 3");
                 int lado3 = input.nextInt();
 
-                Figura tri = new Triangulo(lado1, lado2, lado3);
-                System.out.println("A área do triangulo é " + tri.calcularArea());
+               figuraGeometrica = new Triangulo(lado1, lado2, lado3);
                 break;
 
             case "quadrado":
                 System.out.println("Escreva o lado: ");
                 int ladoQuad = input.nextInt();
-                Figura quad = new Quadrado(ladoQuad);
-                System.out.println("A área do retângulo é " + quad.calcularArea());
+                figuraGeometrica = new Quadrado(ladoQuad);
                 break;
                 
             case "circulo":
                 System.out.println("Escreva o raio: ");
                 int raio = input.nextInt();
-                Figura circ = new Circulo(raio);
-                System.out.println("A área do retângulo é " + circ.calcularArea());
+                figuraGeometrica = new Circulo(raio);
                 break;
 
         }
+        System.out.println("A área da figura é " + figuraGeometrica.calcularArea());
     }
 
 }
