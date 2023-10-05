@@ -43,7 +43,7 @@ public class App {
     ((Programador) funcionarios[4]).incluirLinguagem("Phyton");
     
     funcionarios[5] = new Funcionario("José", 1000);
-    funcionarios[6] = new Funcionario("José", 1400);
+    funcionarios[6] = new Funcionario("Maria", 1400);
     
    for(int i = 0; i < funcionarios.length; i++){
        empresa.incluirFuncionario(funcionarios[i]);
@@ -55,14 +55,8 @@ public class App {
       
    }
     
-        
-    
-    System.out.println("O custo total de salário da emrpesa" + empresa.getNome() + " é de: R$ " + empresa.calcularCustosSalario());
+    System.out.println("O custo total de salário da emrpesa " + empresa.getNome() + " é de: R$ " + empresa.calcularCustosSalario());
 
-    
-    
-    
-    
     }
     
     

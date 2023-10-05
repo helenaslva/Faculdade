@@ -26,7 +26,6 @@ public class App {
                 int altura = input.nextInt();
                 System.out.println("Escreva a largura: ");
                 int largura = input.nextInt();
-
                 figuraGeometrica = new Retangulo(largura, altura);
                 break;
             case "triangulo":
@@ -36,8 +35,7 @@ public class App {
                 int lado2 = input.nextInt();
                 System.out.println("Escreva o lado 3");
                 int lado3 = input.nextInt();
-
-               figuraGeometrica = new Triangulo(lado1, lado2, lado3);
+                figuraGeometrica = new Triangulo(lado1, lado2, lado3);
                 break;
 
             case "quadrado":

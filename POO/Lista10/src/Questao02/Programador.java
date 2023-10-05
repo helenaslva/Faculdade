@@ -32,7 +32,7 @@ public class Programador extends Funcionario{
     public double calcularSalario(){
         double salario = this.getSalarioBase();
         for(String linguagem: linguagens){
-            if(linguagem.equals("Java")){
+            if(linguagem.equalsIgnoreCase("Java")){
                 salario += (this.getSalarioBase() * 0.2);
             }
         }
@@ -41,7 +41,7 @@ public class Programador extends Funcionario{
     }
       @Override
     public String toString() {
-        return "Programador{" + "linguagens=" + linguagens + '}';
+        return "Programador: " + "linguagens=" + linguagens;
     }
     
 }
