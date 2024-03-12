@@ -1,4 +1,4 @@
-package Questao01;
+package Questao01Lista01;
 
 public class Main {
     public static void main(String[] args) {
