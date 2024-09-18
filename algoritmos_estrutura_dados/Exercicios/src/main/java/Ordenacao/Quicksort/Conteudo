@@ -1,0 +1,62 @@
+Escolhe-se um elemento arbitrário, denominado de “pivô”
+• Organiza-se o vetor de forma que:
+– Os elementos menores que o pivô fiquem à sua esquerda
+– Os elementos maiores que o pivô fiquem à sua direita
+• Após este procedimento, o pivô estará ordenado
+• Chamar recursivamente o algoritmo para organizar os subvetores à esquerda e à direita do pivô
+• Prosseguir, até que os vetores tenham 0 ou 1 elemento.
+
+0  1  2  3  4  5  6  7  8
+25 4 12 37 57 48 86 33 92
+
+a = 3 (primeiro maior que o pivo 25)
+b = 2 (primeiro menor que o pivo 25)
+
+0  1  2  3  4  5  6  7  8
+12 4 25 37 57 48 86 33 92
+
+Algoritmo: quickSort()
+n ← size(info)-1;
+quickSort(0, n);
+
+
+Algoritmo: quickSort(int inicio, int fim)
+se (inicio < fim) então
+  idxPivo ← particionar(inicio, fim);
+  quickSort(inicio, idxPivo-1);
+  quickSort(idxPivo+1, fim);
+fim-se
+
+
+
+Algoritmo: particionar(int inicio, int fim)
+a ← inicio;
+b ← fim+1;
+pivo ← info[inicio];
+enquanto (verdadeiro) faça
+  faça
+   a ← a+1;
+  enquanto (a ≤ fim e info[a] < pivo);
+  faça
+   b ← b-1;
+  enquanto (b ≥ inicio e info[b]) > pivo);
+
+  se (a ≥ b) então
+    break;
+  fim-se;
+  trocar(a,b);
+fim-enquanto;
+trocar(b, inicio);
+retornar b;
+
+
+No melhor caso:
+– O pivô representa um valor mediano que divide o conjunto de dados em dois
+sub-vetores de igual tamanho.
+– Neste caso, a ordem de complexidade é O(n log(n))
+• No pior caso.
+– O pivô é o maior elemento ou o menor (não divide em dois sub-vetores de
+tamanho igual)
+• O algoritmo recai em Algoritmo de ordenação por Bolha
+• Caso médio:
+– O algoritmo é O(n log(n))

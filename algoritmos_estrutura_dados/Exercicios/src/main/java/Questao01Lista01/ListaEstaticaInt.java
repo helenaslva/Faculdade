@@ -1,5 +1,7 @@
 package Questao01Lista01;
 
+import java.util.Arrays;
+
 public class ListaEstaticaInt {
 
     private int[] info;
@@ -23,8 +25,17 @@ public class ListaEstaticaInt {
         if(tamanho == info.length){
             redimensionar();
         }
-
-        info[tamanho] = valor;
+        if(estaVazia()){
+            info[tamanho] = valor;
+        }else {
+                for (int i = 0; i < tamanho; i++) {
+                    if (valor <= info[i]) {
+                        int temp = info[i];
+                        info[i] = valor;
+                        info[i + 1] = temp;
+                    }
+                }
+            }
         tamanho++;
     }
 
@@ -70,6 +81,14 @@ public class ListaEstaticaInt {
 
     public int getTamanho(){
         return tamanho;
+    }
+
+    @Override
+    public String toString() {
+        return "ListaEstaticaInt{" +
+                "info=" + Arrays.toString(info) +
+                ", tamanho=" + tamanho +
+                '}';
     }
 
 

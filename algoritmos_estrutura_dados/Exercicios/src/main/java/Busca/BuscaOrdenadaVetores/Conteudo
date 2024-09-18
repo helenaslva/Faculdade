@@ -1,0 +1,102 @@
+Busca linear
+
+- Percorre um vetor, partindo da primeira posição
+até encontrar um elemento que armazena o valor de busca ou até atingiro
+final do vetor
+        Algoritmo: buscaLinear(int[] info, int valorBuscar)
+        int n ← size(info);
+        para i ←0 até n-1 faça
+         se info[i] = valorBuscar então // encontrado
+         retornar i;
+         fim-se;
+        fim-para;
+        retornar -1; // não encontrado
+
+   • Pior caso:
+   – O valor de busca não existe ou está localizado no final do vetor.
+   – Se a quantidade de elementos é n, a quantidade necessária de
+   comparações é n também
+   • Complexidade: O(n)
+
+   - Caso médio:
+   – Necessária: n/2 comparações
+   – Desempenho computacional continua variando linearmente em
+   relação ao problema.
+   • Complexidade: Ω(n)
+
+
+************* BUSCA LINEAR EM VETOR ORDENADO ***********************************
+
+- Não é preciso percorrer toda a estrutura de dados
+EX: NO vetor 2, 15, 22, 31, 47, 55, 62, 79, 90, 98
+Ao procurar pelo valor 57, chegando na poisção 6(62), não é necessário continuar a busca
+
+Algoritmo: buscaLinearVetorOrdenado(int[] info, int valorBuscar)
+int n ← size(info);
+para i ←0 até n-1 faça
+ se info[i] = valorBuscar então
+ retornar i;
+ senão
+ se valorBuscar < info[i] então
+ break;
+ fim-se;
+ fim-se;
+fim-para;
+retornar -1;
+
+Caso o elemento procurado não pertença ao vetor, a busca
+linear com vetor ordenado apresenta um desempenho
+ligeiramente superior à busca linear
+O algoritmo continua sendo linear
+– Complexidade O(n)
+
+
+************************** Busca Binária *(**************
+Utilizada quando a estrutura de dados está ordenada
+
+
+Compara o valor de busca com o elemento do meio do vetor e:
+– Se o valor de busca for igual ao do vetor:
+• elemento localizado. Finaliza o algoritmo
+– Se o valor de busca for menor ao do vetor:
+• procura novamente na primeira metade do vetor
+– Se o valor de busca for maior ao do vetor:
+• procura novamente na segunda metade do vetor
+O procedimento é repetido, subdividindo o vetor até encontrar o
+elemento ou o sub-vetor atingir tamanho 0.
+
+EX: Vetor: 2, 15, 22, 31, 47, 55, 62, 79, 90, 98
+
+procurar o número 55
+
+1 - meio = [(inicio + fim)/2] -> (0 + 9)/2 = 4 meio = 47 ( varre do 0 ao 4)
+
+2 - meio = [(inicio + fim)/2] -> (5+ 9)/2 = 7 meio = 79 (varre do 7 ao 9)
+
+3 - meio = [(inicio+fim)/2] -> (5+6)/2 = 5 meio = 55 (encontrado)
+
+Algoritmo: buscaBinaria(int[] info, int valorBuscar)
+n ← size(info);
+inicio ← 0;
+fim ← n-1;
+enquanto inicio ≤ fim faça
+ meio ← (inicio + fim)/2 ;
+ se valorBuscar < info[meio] então
+ fim ← meio-1; // redefine posição final
+ senão
+ se valorBuscar > info[meio] então
+ inicio ← meio+1; // redefine posição inicial
+ senão
+ retornar meio; // achou
+ fim-se;
+ fim-se;
+fim-enquanto;
+retornar -1;
+
+Pior caso:
+– O elemento não existe no vetor
+– A cada iteração:
+• duas comparações são realizadas
+• O escopo de busca é dividido pela metade
+
+

@@ -1,0 +1,142 @@
+“Compactamos” a faixa de valores para utilizar uma faixa
+menor.
+• Função de dispersão ou função de hash é uma função
+matemática que converte um número compreendido numa
+faixa de valores grande para uma faixa de valores menor
+– O resultado desta função é “valor de hash” e corresponde ao índice do
+vetor
+
+
+Considerar que ao invés de um
+vetor de 10 mil elementos,
+tenhamos apenas 16
+elementos.
+• Podemos “compactar” com a
+função: Matricula % 16
+
+
+Cada objeto armazenado na tabela de dispersão deve possuir
+uma chave de busca que é única para cada objeto
+
+A chave de busca ou chave de pesquisa é utilizada nas
+operações de inclusão, exclusão e pesquisa
+
+Para pesquisar um elemento na tabela de dispersão:
+– Calcular o valor de hash da chave para identificar o índice do vetor
+– Se o índice estiver vazio, o elemento não foi adicionado
+• Para inserir um elemento na tabela de dispersão
+– Calcular o valor de hash da chave para identificar o índice do vetor
+– Inserir o elemento no índice calculado
+• Para excluir um elemento da tabela de dispersão
+– Calcular o valor de hash da chave para identificar o índice do vetor
+– Excluir o elemento no índice calculado
+C
+
+Ao comprimir uma faixa
+de chaves com grande
+intervalo numa faixa de
+pequeno intervalo, não
+há garantias de que não
+haja duas chaves com o
+mesmo índice do vetor
+
+Ao calcular o valor de hash para um elemento e identificar
+que a posição do vetor já está ocupada, afirmamos que
+ocorreu uma colisão.
+• Para reduzir as colisões deve-se:
+– Aumentar o tamanho do vetor e
+– Criar um vetor cuja quantidade de elementos seja um número primo
+
+
+Fator de carga
+• É a proporção do número de dados armazenados no
+mapa sobre o tamanho total do vetor.
+f= 𝑁/𝑀
+▪ N = quantidade de dados armazenados
+▪ M = tamanho do vetor
+
+Para minimizar colisões mas não desperdiçar muito
+espaço, utiliza-se um fator de carga igual à 0,75.
+
+
+*** Tratamento de colisões por E ndereçamento separado****
+Neste abordagem, o
+vetor não armazena
+os dados, ao invés
+disso, mantém listas
+encadeadas, para
+armazenar os dados.
+
+
+
+A chave de um item de dados é convertida para o índice. O
+elemento é adicionado na lista encadeada daquele índice.
+– Não há necessidade de buscar posições vazias no vetor primário, como
+ocorre com o endereçamento aberto.
+
+A pesquisa requer efetuar uma busca linear na lista
+encadeada do índice calculado pela função de dispersão
+
+
+Algumas desvantagens:
+– Baseiam-se em vetores
+• Difíceis de expandir
+– Podem ter desempenho reduzido de forma significativa
+• Requer que o programador saiba antecipadamente a quantidade
+aproximada de dados.
+– Não há uma maneira conveniente de visitar os itens de
+uma tabela de dispersão de forma ordenada
+
+
+
+Chaves de busca do tipo texto
+• Pode-se atribuir um código para cada caractere. Exemplo:
+Exemplo: para a palavra “CASA” poderia ser
+atribuído:
+C = 3
+A = 1
+S = 19
+A = 1
+3 + 1 + 19 + 1 = 24
+
+
+Algoritmo: calcularHash(String texto)
+int n ← size(texto) - 1;
+h ← 0;
+para c ← 0 até n faça
+ caractere ← texto[c];
+ codigo ← mapear(caractere);
+ h ← h + (código * 26 ^ c);
+fim-para;
+retornar h
+
+
+
+Podem ser gerados números muito grandes, causando
+overflow
+
+
+
+Função de hash para string em Java
+• Em Java, o hashCode() para string é calculado desta forma:
+• Exemplo:
+ “CASA”
+s[0]*31(n-1) + s[1]*31(n-2) + ... + s[n-1]*310
+2061100
+
+Função de hash para string em Java
+• Utiliza-se o número 31 pelas seguintes questões:
+• Eficiência em operações de bits: O número 31 é um número primo baixo, o que significa que
+tem poucos divisores.
+• Distribuição de bits: O número 31 tem uma propriedade interessante quando multiplicado
+por um inteiro: ele pode ser expresso como (32 - 1), o que significa que é equivalente a um
+deslocamento de bits 5 bits para a esquerda (já que 32 é 2 elevado à 5ª potência). Isso pode
+ajudar a distribuir os bits de forma mais uniforme ao multiplicar e espalhar os bits dos
+caracteres da String ao calcular o hash.
+• Evita multiplicadores menores: Escolher um multiplicador muito pequeno pode resultar em
+colisões mais frequentes e uma distribuição menos uniforme dos valores hash. O número 31
+é pequeno o suficiente para manter a eficiência computacional, mas grande o suficiente para
+ajudar a reduzir as colisões.
+• Desempenho: O número 31 oferece um bom equilíbrio entre desempenho e distribuição de
+bits. Ele tem sido historicamente eficaz em produzir valores hash com poucas colisões e bom
+desempenho em uma ampla gama de casos de uso.

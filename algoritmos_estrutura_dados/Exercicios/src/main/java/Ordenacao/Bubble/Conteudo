@@ -1,0 +1,88 @@
+Utiliza o seguinte procedimento:
+– Compare dois elementos
+– Se o da esquerda for maior, troque-os de posição
+– Desloque-se para a direita
+– Quando conseguir ordenar um elemento (colocando-o mais à direta)
+reinicie novamente na extremidade à esquerda
+
+Ordenar o vetor
+40 20 50 10
+1ª passagem
+    0 1 2 3       0 1 2 3
+0 - 40 20 50 10 → 20 40 50 10
+
+   0 1 2 3       0 1 2 3
+1- 20 40 50 10 → 20 40 50 10
+
+   0 1 2 3       0 1 2 3
+2- 20 40 50 10 → 20 40 10 50
+
+Continuação da ordenação do vetor – 2ª passagem
+20 40 10 50
+   0 1 2 3       0 1 2 3
+0- 20 40 10 50 → 20 40 10 50
+
+   0 1 2 3       0 1 2 3
+1- 20 40 10 50 → 20 10 40 50
+
+Continuação da ordenação do vetor – 3ª passagem
+20 10 40 50
+   0 1 2 3       0 1 2 3
+0- 20 10 40 50 → 10 20 40 50
+
+Algoritmo: ordenarPorBolha(int[] info)
+int i,j;
+int n ← size(info);
+para i ← n-1 até 1 faça -> laço que controla a quantidade de passagens(DECRESCENTE)
+ para j ← 0 até i-1 faça -> Executa uma passagem
+  se info[j] > info[j+1] então
+    trocar(info, j, j+1);
+  fim-se
+ fim-para
+fim-para
+
+
+Algoritmo: trocar(int[] info, int pos1, int pos2)
+int temp ← info[pos1];
+info[pos1] ← info[pos2];
+info[pos2] ← temp;
+
+Comparações:
+– Na 1ª passagem: 9 comparações
+– Na 2ª passagem: 8 comparações
+– Na 3ª passagem: 7 comparações
+– ...
+– Na 9ª passagem: 1 comparação
+– Total de comparações: 9 + 8 + 7 + 6 + .. 1 = 45
+
+Sendo N o número de itens do vetor, há N-1 comparações na
+primeira passagem, N-2 na segunda e assim sucessivamente.
+• A soma de tal série é:
+– (N-1) + (N-2) + (N-3) + ... + 1 = N*(N-1)/2
+• Para vetor de 10 elementos:
+– N*(N-1) / 2 é = 10 * (10-1) / 2 => 45 comparações
+• Quando o vetor é grande, o “-1” é irrelevante.
+– Podemos escrever a expressão: N*N/2
+– Ou N2
+/2 – desempenho O(N2
+)
+
+
+Algoritmo: ordenarPorBolha(int info[])
+int i,j;
+int n ← size(info);
+boolean trocou;
+para i ← n-1 até 1 faça
+      trocou ← falso;
+      para j ← 0 até i-1 faça
+        se info[j] > info[j+1] então
+          trocar(info, j, j+1);
+          trocou ← verdadeiro;
+        fim-se;
+      fim-para;
+    se (não trocou) então
+      retornar; -> Interrompe o algoritmo
+                   quando não ocorre
+                   nenhuma troca
+    fim-se;
+fim-para;

@@ -33,23 +33,33 @@ public class ListaEstatica<T>{
         }
     }
 
-    public int buscar(String string) {
+    public int buscar(T valor) {
+        // Percorre o vetor.
         for (int indice = 0; indice < tamanho; indice++) {
+            // Obtém o valor do indice.
             T valorLista = info[indice];
-            if (valorLista.toString().equals(string)) {
+            // Verifica se o valor é igual ao valor informado.
+            if (valorLista.equals(valor)) {
+                // Caso encontar o valor, retorna o indice do mesmo.
                 return indice;
             }
         }
+        // Se não encontrou nenhum elemento igual, retorna -1.
         return -1;
     }
 
-    public void retirar(String string) {
-        int indice = buscar(string);
+    public void retirar(T valor) {
+        // Busca indice do elemento que deverá ser removido.
+        int indice = buscar(valor);
+        // Se encontar, realiza a remoção.
         if (indice > -1) {
+            // Percorre o vetor a partir do indice do elemento que deve ser removido.
             for (int indiceFor = indice; indiceFor < tamanho - 1; indiceFor++) {
+                // Move todos os valores para a esquerda
                 info[indiceFor] = info[indiceFor + 1];
             }
         }
+        // Decrementa a variável de tamanho da lista.
         tamanho--;
     }
 
@@ -72,6 +82,7 @@ public class ListaEstatica<T>{
     public int getTamanho() {
         return tamanho;
     }
+
     @Override
     public String toString() {
         String resultado = "";
