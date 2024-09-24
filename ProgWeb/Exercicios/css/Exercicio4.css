@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.menuPrincipal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #dd9fe6;
+    padding: 10px ;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+}
+.menuPrincipal li  {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+}
+
+.divFavFoods{
+    margin: 100px auto; 
+    width: 300px; 
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.divTable{
+    margin: 100px auto;
+    width: 300px; 
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.divTable:hover{
+    background-color: antiquewhite;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Estilo para o cabeçalho */
+  th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  /* Estilo para as células */
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+  }
